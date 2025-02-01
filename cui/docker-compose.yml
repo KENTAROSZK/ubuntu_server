@@ -1,0 +1,9 @@
+services:
+  ubuntu:
+    container_name: ubuntu_server
+    build:
+        context: .
+        dockerfile: Dockerfile
+    volumes:
+      - ./data:/app
+    tty: true
