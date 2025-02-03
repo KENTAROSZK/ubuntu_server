@@ -45,7 +45,7 @@ uv run --with jupyter jupyter lab --allow-root --ip=0.0.0.0 --port=8888 --no-bro
 3. 作成したノートブックの右上の`Select Kernel`をクリックする。
 4. `Select Another Kernel`を選択する。
 5. `既存のJupyterHubサーバー...`を選択する。
-6. `http://127.0.0.1:8888/lab?token=974b6e73ade5c5f5e25cc799ed8b2519ca77194022054901`のようなURLを選択できるのでそれを選ぶ。
+6. `http://127.0.0.1:8888/lab`のようなURLを選択できるのでそれを選ぶ。
 
 
 
