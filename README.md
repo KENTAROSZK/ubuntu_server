@@ -24,6 +24,31 @@ uv init -p 3.11 pj_name
 
 ## `uv`で`jupyter lab`を使いたいとき
 
+### CUIの場合
+```shell
+uv run --with jupyter jupyter lab --allow-root --ip=0.0.0.0 --port=8888 --no-browser
+```
+
+#### ブラウザで開く場合
+すると以下のようなアドレスが表示されるので、それをブラウザで開く。
+
+`http://127.0.0.1:8888/lab?token=974b6e73ade5c5f5e25cc799ed8b2519ca77194022054901`
+
+
+#### VS Code上で開く場合
+
+1. `Ctrl + Shift + P` または `⌘ Command + Shift + P`で、`create jupyter`と入力する。
+2. `Create: New Jupyter Notebook`を選択する。
+3. 作成したノートブックの右上の`Select Kernel`をクリックする。
+4. `Select Another Kernel`を選択する。
+5. `既存のJupyterHubサーバー...`を選択する。
+6. `http://127.0.0.1:8888/lab?token=974b6e73ade5c5f5e25cc799ed8b2519ca77194022054901`のようなURLを選択できるのでそれを選ぶ。
+
+
+
+
+
+### GUIの場合
 ```shell
 uv run --with jupyter jupyter lab
 ```

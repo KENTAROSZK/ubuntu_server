@@ -7,3 +7,5 @@ services:
     volumes:
       - ./data:/app
     tty: true
+    ports:
+      - "8888:8888" # jupyter labを接続するため
