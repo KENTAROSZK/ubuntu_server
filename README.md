@@ -35,7 +35,7 @@ uv run --with jupyter jupyter lab --allow-root --ip=0.0.0.0 --port=8888 --no-bro
 `http://127.0.0.1:8888/lab?token=974b6e73ade5c5f5e25cc799ed8b2519ca77194022054901`
 
 
-#### **VS Code上で開く場合
+#### VS Code上で開く場合
 
 1. `Ctrl + Shift + P` または `⌘ Command + Shift + P`で、`create jupyter`と入力する。
 2. `Create: New Jupyter Notebook`を選択する。
@@ -48,7 +48,7 @@ uv run --with jupyter jupyter lab --allow-root --ip=0.0.0.0 --port=8888 --no-bro
 
 
 
-### GUIの場合
+### **GUIの場合
 ```shell
 uv run --with jupyter jupyter lab
 ```
