@@ -29,13 +29,13 @@ uv init -p 3.11 pj_name
 
 ### **CUIの場合
 ```shell
-uv run --with jupyter jupyter lab --allow-root --ip=0.0.0.0 --port=8888 --no-browser
+uv run --with jupyter jupyter lab --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token=''
 ```
 
 #### ブラウザで開く場合
 すると以下のようなアドレスが表示されるので、それをブラウザで開く。
 
-`http://127.0.0.1:8888/lab?token=974b6e73ade5c5f5e25cc799ed8b2519ca77194022054901`
+`http://127.0.0.1:8888/lab`
 
 
 #### VS Code上で開く場合
