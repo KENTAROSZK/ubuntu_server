@@ -68,6 +68,13 @@ uv run --with jupyter jupyter lab
 のように書く。
 
 
+> [!TIP]
+> `uv`のプロジェクトの中で明示的に仮想環境の立ち上げをしなくても良い理由
+> コマンドを実行するたびに、裏側で一時的な仮想環境を自動生成。
+> 終了時に環境を破棄するので、「activate」「deactivate」などの操作やフォルダ管理が不要。
+> 環境の汚染が起こりにくい
+
+
 ## 参考ページ：
 - https://github.com/linuxserver/docker-webtop
 - https://zenn.dev/mkj/articles/292a70b4f4e5e8

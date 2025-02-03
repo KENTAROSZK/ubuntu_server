@@ -34,3 +34,5 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
 # ENV PATH="/config/.local/bin:${PATH}"
 ENV PATH="/usr/local/bin:/config/.local/bin:${PATH}"
 #====================================================================
+
+ENV PIPENV_IGNORE_VIRTUALENVS=1

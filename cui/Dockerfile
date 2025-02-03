@@ -48,22 +48,22 @@ RUN apt-get update && apt-get install -y \
 # CA証明書を更新
 RUN update-ca-certificates
 
-# pyenvのインストール
-RUN git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+# # pyenvのインストール
+# RUN git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
-# pyenvを使用するための環境変数を設定
-ENV PYENV_ROOT="/root/.pyenv"
-ENV PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
+# # pyenvを使用するための環境変数を設定
+# ENV PYENV_ROOT="/root/.pyenv"
+# ENV PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
 
-# Python 3.12のインストール
-RUN pyenv install 3.12.0 && pyenv global 3.12.0
+# # Python 3.12のインストール
+# RUN pyenv install 3.12.0 && pyenv global 3.12.0
 
-# PIPのアップグレードとPlaywrightのインストール
-RUN pip install --no-cache-dir --upgrade pip && pip install playwright && playwright install
+# # PIPのアップグレードとPlaywrightのインストール
+# RUN pip install --no-cache-dir --upgrade pip && pip install playwright && playwright install
 
-# Playwright以外ライブラリをインストール
-# COPY requirements.txt .
-# RUN pip install --no-cache-dir -r requirements.txt
+# # uvを使うのでpyenv邪魔
+# # pyenvを上記でインストールしているのは、python環境構築するため
+ENV PIPENV_IGNORE_VIRTUALENVS=1
 
 # uvのインストール
  RUN curl -LsSf https://astral.sh/uv/install.sh | sh && \
