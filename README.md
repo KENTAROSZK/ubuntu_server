@@ -24,8 +24,8 @@ uv init -p 3.11 pj_name
 
 ## `uv`で`jupyter lab`を使いたいとき
 
-[!IMPORTANT]
-JupyterLabを使うときは、まず上記のプロジェクトを作成し、そのプロジェクトのディレクトリに入ってから、以下コマンドで`jupyter lab`を起動すること。例）`cd pj_name && uv run --with jupyter jupyter lab`
+> [!IMPORTANT]
+> JupyterLabを使うときは、まず上記のプロジェクトを作成し、そのプロジェクトのディレクトリに入ってから、以下コマンドで`jupyter lab`を起動すること。例）`cd pj_name && uv run --with jupyter jupyter lab`
 
 ### **CUIの場合
 ```shell
