@@ -52,6 +52,9 @@ uv run --with jupyter jupyter lab --allow-root --ip=0.0.0.0 --port=8888 --no-bro
 
 
 ### **GUIの場合
+
+以下を実行すると、ブラウザが自動で立ち上がる
+
 ```shell
 uv run --with jupyter jupyter lab
 ```
