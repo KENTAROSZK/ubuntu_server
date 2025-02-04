@@ -5,6 +5,8 @@ FROM lscr.io/linuxserver/webtop:ubuntu-kde
 # FROM lscr.io/linuxserver/webtop:ubuntu-xfce <-- XFCE Ubuntu
 # FROM lscr.io/linuxserver/webtop:latest # <-- XFCE Alpine
 
+ENV TZ=Asia/Tokyo
+
 # Install packages
 RUN apt-get update && apt-get upgrade -y \
   && apt-get install -y \
@@ -22,17 +24,12 @@ RUN apt-get update && apt-get upgrade -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-#====================================================================
-# uvのインストールと移動
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
-  && mv /config/.local/bin/uv /usr/local/bin/uv \
-  && mv /config/.local/bin/uvx /usr/local/bin/uvx \
-  && chmod +x /usr/local/bin/uv /usr/local/bin/uvx
+  # CA証明書を更新
+RUN update-ca-certificates
 
-# 環境変数 PATH を設定
-# ENV PATH="/usr/local/bin:${PATH}"
-# ENV PATH="/config/.local/bin:${PATH}"
-ENV PATH="/usr/local/bin:/config/.local/bin:${PATH}"
-#====================================================================
+ENV PATH=/config/.local/bin:$PATH
+# RUN mkdir -p /config/.cache/uv && chown -R abc:abc /config/.cache/uv
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-ENV PIPENV_IGNORE_VIRTUALENVS=1
+ENTRYPOINT ["/entrypoint.sh"]

@@ -12,6 +12,7 @@ services:
       - TZ=Etc/UTC
       - SUBFOLDER=/ #optional
       - TITLE=Ubuntu #optional
+      #- PATH=/config/.local/bin:/lsiopy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     volumes:
       - ./data:/config
       - /var/run/docker.sock:/var/run/docker.sock #optional
