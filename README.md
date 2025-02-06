@@ -9,7 +9,10 @@ docker compose up --build -d
 ```
 
 ## GUIに入る場合、デスクトップ環境への入り方
-ブラウザで `http://localhost:3000/ ` を開けばUbuntuのGUI環境が立ち上がる。
+
+- macの場合：ブラウザで `http://localhost:3000/ ` を開けばUbuntuのGUI環境が立ち上がる。
+- windowsの場合：ブラウザで `http://localhost:6080/vnc.html ` を開けばUbuntuのGUI環境が立ち上がる。
+
 
 
 ## `uv`を使ったプロジェクトの作成方法
@@ -26,7 +29,7 @@ uv init -p 3.11 pj_name
 ## `uv`で`jupyter lab`を使いたいとき
 
 > [!IMPORTANT]
-> JupyterLabを使うときは、まず上記のプロジェクトを作成し、そのプロジェクトのディレクトリに入ってから、以下コマンドで`jupyter lab`を起動すること。例）`cd pj_name && uv run --with jupyter jupyter lab`
+> JupyterLabを使うときは、まず上記のプロジェクトを作成し、そのプロジェクトのディレクトリに入ってから、以下コマンドで`jupyter lab`を起動すること。例）`cd pj_name && uv run --with jupyter jupyter lab --allow-root`
 
 ### **CUIの場合
 ```shell
@@ -57,7 +60,7 @@ uv run --with jupyter jupyter lab --allow-root --ip=0.0.0.0 --port=8888 --no-bro
 以下を実行すると、ブラウザが自動で立ち上がる
 
 ```shell
-uv run --with jupyter jupyter lab
+uv run --with jupyter jupyter lab --allow-root
 ```
 
 ### `uv`の中の`notebook`でライブラリをインストールしたいとき
@@ -74,6 +77,14 @@ uv run --with jupyter jupyter lab
 > コマンドを実行するたびに、裏側で一時的な仮想環境を自動生成。
 > 終了時に環境を破棄するので、「activate」「deactivate」などの操作やフォルダ管理が不要。
 > 環境の汚染が起こりにくい
+
+
+> [!IMPORTANT]
+> windowsとmacとでDockerfileが異なる理由
+> windowsは、`webtop`のイメージを利用すると、windows（ホスト）側のファイル操作権限のpermissionエラーが起きやすく、使いづらい。
+> permissionエラーを解消するために、`chmod`をしても無理。これはDockerのUbuntu内部からホストのwindows（もっと言えば、WSL2）のファイル権限の操作がコマンド通りに動かないため。そういうバグがある模様。
+> macで`ubuntu:latest`のイメージを利用する場合、apple sillicon（`arm64`）に対応したgoogle chromeが存在せず、Ubuntu上でChromeがクラッシュしやすい。
+> 前提として、`ubuntu:latest`は、root権限での起動となるため、root権限で使えるブラウザを設定するのはかなり厳しい。
 
 
 ## 参考ページ：
