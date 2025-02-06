@@ -1,0 +1,19 @@
+services:
+  desktop:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5901:5901"
+      - "6080:6080"
+    volumes:
+      - ./data:/data
+    environment:
+      - RESOLUTION=1920x1080
+    restart: unless-stopped
+    ######################################################################
+    security_opt:
+      - seccomp:unconfined #optional
+    shm_size: "2gb" #メモリ共有設定
+    tty: true # コンソールを使用可能にする
+    ######################################################################
