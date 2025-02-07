@@ -45,14 +45,12 @@ RUN sed -i 's|exec -a "$0" "$HERE/chrome" "$@"|exec -a "$0" "$HERE/chrome" "$@" 
 
 # VNC の設定
 RUN touch /root/.Xauthority
-COPY startup.sh /startup.sh
+COPY ./startup.sh /startup.sh
 RUN chmod +x /startup.sh
 
 # install `uv`
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Firefox の設定フォルダ作成（必要なら）
-RUN mkdir -p /root/.mozilla/firefox/
 
 EXPOSE 5901 6080
 VOLUME ["/data"]

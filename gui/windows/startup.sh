@@ -8,6 +8,12 @@
 # それを起こさないために、`VIRTUAL_ENV`をアンセットしておく
 unset VIRTUAL_ENV
 
+# コンテナを`docker compose up --build -d`で再起動した場合、
+# 過去に存在したファイルが原因で起動に失敗することがある。
+# 回避するために消しておくs
+# Remove old lock files
+rm -f /tmp/.X11-unix/X* /tmp/.X*-lock
+
 # Get browser window dimensions from environment variable or use default
 RESOLUTION=${RESOLUTION:-1920x1080}
 
